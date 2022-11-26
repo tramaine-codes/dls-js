@@ -1,0 +1,55 @@
+{
+  "name": "dsl",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Tramaine L. Gillus",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tgillus/dsl.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.16"
+  },
+  "scripts": {
+    "build": "npm run clean && npm test && tsc",
+    "clean": "del ./lib ./coverage",
+    "format": "prettier . --write",
+    "grammar": "ohm generateBundles --withTypes --esm 'src/filter/transpiler/parser/grammar/*.ohm'",
+    "lint": "eslint . --ext .js,.ts",
+    "lint:fix": "eslint . --ext .js,.ts --fix",
+    "prepare": "husky install",
+    "release": "release-it --ci",
+    "start": "tsx src/index.ts",
+    "test": "vitest run",
+    "test:cov": "vitest run --coverage",
+    "test:watch": "vitest",
+    "watch": "tsc -c"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.2.0",
+    "@commitlint/config-conventional": "17.2.0",
+    "@ohm-js/cli": "1.1.0",
+    "@release-it/conventional-changelog": "5.1.1",
+    "@types/node": "18.11.9",
+    "@typescript-eslint/eslint-plugin": "5.42.0",
+    "@typescript-eslint/parser": "5.42.0",
+    "@vitest/coverage-c8": "0.24.5",
+    "del-cli": "5.0.0",
+    "eslint": "8.27.0",
+    "husky": "8.0.1",
+    "lint-staged": "13.0.3",
+    "prettier": "2.7.1",
+    "release-it": "15.5.0",
+    "testdouble": "3.16.6",
+    "tsx": "3.11.0",
+    "typescript": "4.8.4",
+    "vitest": "0.24.5"
+  },
+  "dependencies": {
+    "dayjs": "1.11.6",
+    "liqe": "3.5.0",
+    "ohm-js": "16.4.0"
+  }
+}

@@ -1,0 +1,51 @@
+Filter {
+  FilterExp
+    = Fragment
+  
+  Fragment
+    = Fragment compoundOp Fragment  -- compound
+    | CategoryFragment
+    | CompareFragment
+  
+  CategoryFragment
+    = "current" categoryOp bool
+  
+  CompareFragment
+    = startDate compareOp date
+
+  compoundOp
+    = and
+    | or
+
+  startDate
+    = caseInsensitive<"startDate">
+
+  categoryOp
+    = "="
+    | "!="
+
+  compareOp
+    = ">="
+    | ">"
+    | "<="
+    | "<"
+
+  bool
+    = true
+    | false
+  
+  date
+    = digit digit digit digit "-" digit digit "-" digit digit
+  
+  and
+    = caseInsensitive<"and">
+
+  or
+    = caseInsensitive<"or">
+  
+  true
+    = caseInsensitive<"true">
+
+  false
+    = caseInsensitive<"false">
+}

@@ -1,0 +1,11 @@
+/.chemist
+/coverage
+/dist
+/.husky
+/lib
+/node_modules
+/tmp
+
+package-lock.json
+
+*.hbs
