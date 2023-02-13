@@ -28,8 +28,8 @@
     "watch": "tsc -c"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.4.2",
-    "@commitlint/config-conventional": "17.4.2",
+    "@commitlint/cli": "17.4.3",
+    "@commitlint/config-conventional": "17.4.3",
     "@ohm-js/cli": "1.1.0",
     "@release-it/conventional-changelog": "5.1.1",
     "@types/node": "18.13.0",
@@ -37,7 +37,7 @@
     "@typescript-eslint/parser": "5.51.0",
     "@vitest/coverage-c8": "0.28.4",
     "del-cli": "5.0.0",
-    "eslint": "8.33.0",
+    "eslint": "8.34.0",
     "husky": "8.0.3",
     "lint-staged": "13.1.1",
     "prettier": "2.8.4",
