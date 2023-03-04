@@ -2,7 +2,7 @@
 // This file was generated from filter.ohm by `ohm generateBundles`.
 
 import {
-  ActionDict,
+  BaseActionDict,
   Grammar,
   IterationNode,
   Node,
@@ -11,7 +11,7 @@ import {
   TerminalNode,
 } from 'ohm-js';
 
-export interface FilterActionDict<T> extends ActionDict<T> {
+export interface FilterActionDict<T> extends BaseActionDict<T> {
   FilterExp?: (this: NonterminalNode, arg0: NonterminalNode) => T;
   Fragment_compound?: (
     this: NonterminalNode,

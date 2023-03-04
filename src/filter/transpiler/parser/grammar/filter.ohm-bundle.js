@@ -1,5 +1,5 @@
-import ohm from 'ohm-js';
-const result = ohm.makeRecipe([
+import { makeRecipe } from 'ohm-js';
+const result = makeRecipe([
   'grammar',
   {
     source:

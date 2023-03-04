@@ -49,5 +49,5 @@ console.log(filter.produce());
 
 const result = new Filter(
   new Compare(new StartDate(), '>', new DateValue('2000-08-3249'))
-).validate();
+).produce();
 console.log(JSON.stringify(result, undefined, 2));

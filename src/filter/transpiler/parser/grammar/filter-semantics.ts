@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import ohm from 'ohm-js';
+import * as ohm from 'ohm-js';
 import {
   And,
   Category,

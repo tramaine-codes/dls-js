@@ -30,7 +30,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.4.4",
     "@commitlint/config-conventional": "17.4.4",
-    "@ohm-js/cli": "1.1.0",
+    "@ohm-js/cli": "2.0.0",
     "@release-it/conventional-changelog": "5.1.1",
     "@types/node": "^18.14.6",
     "@typescript-eslint/eslint-plugin": "5.54.0",
@@ -50,6 +50,6 @@
   "dependencies": {
     "dayjs": "1.11.7",
     "liqe": "3.6.0",
-    "ohm-js": "16.6.0"
+    "ohm-js": "17.0.3"
   }
 }
