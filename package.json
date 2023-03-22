@@ -28,7 +28,7 @@
     "watch": "tsc -c"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.4.4",
+    "@commitlint/cli": "17.5.0",
     "@commitlint/config-conventional": "17.4.4",
     "@ohm-js/cli": "2.0.0",
     "@release-it/conventional-changelog": "5.1.1",
