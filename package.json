@@ -32,7 +32,7 @@
     "@commitlint/config-conventional": "19.2.2",
     "@ohm-js/cli": "2.0.0",
     "@release-it/conventional-changelog": "8.0.1",
-    "@types/node": "20.12.8",
+    "@types/node": "20.12.11",
     "@typescript-eslint/eslint-plugin": "7.8.0",
     "@typescript-eslint/parser": "7.8.0",
     "@vitest/coverage-v8": "1.6.0",
@@ -43,7 +43,7 @@
     "prettier": "3.2.5",
     "release-it": "17.2.1",
     "testdouble": "3.20.2",
-    "tsx": "4.9.1",
+    "tsx": "4.10.1",
     "typescript": "5.4.5",
     "vitest": "1.6.0"
   },
