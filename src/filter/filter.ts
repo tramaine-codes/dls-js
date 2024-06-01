@@ -10,9 +10,7 @@ export interface Fragment {
 export class Filter implements Fragment {
   constructor(private readonly fragment: Compound | Category | Compare) {}
 
-  produce() {
-    return this.fragment.produce();
-  }
+  produce = () => this.fragment.produce();
 }
 
 export class Compound implements Fragment {
@@ -22,31 +20,24 @@ export class Compound implements Fragment {
     private readonly right: Compound | Category | Compare
   ) {}
 
-  produce(): string {
-    return `${this.left.produce()} ${this.op.produce()} ${this.right.produce()}`;
-  }
+  produce = (): string =>
+    `${this.left.produce()} ${this.op.produce()} ${this.right.produce()}`;
 }
 
 export class And implements Fragment {
-  produce() {
-    return 'AND';
-  }
+  produce = () => 'AND';
 }
 
 export class Or implements Fragment {
-  produce() {
-    return 'OR';
-  }
+  produce = () => 'OR';
 }
 
 export class Category implements Fragment {
   constructor(private readonly fragment: Null | NotNull) {}
 
-  produce() {
-    return `TRIM(current_ind) IS ${this.fragment.produce()}`;
-  }
+  produce = () => `TRIM(current_ind) IS ${this.fragment.produce()}`;
 
-  static from(equality: '=' | '!=', bool: boolean) {
+  static from = (equality: '=' | '!=', bool: boolean) => {
     if (equality === '=' && bool) {
       return new Category(new NotNull(new Null()));
     }
@@ -56,21 +47,17 @@ export class Category implements Fragment {
     }
 
     return new Category(new Null());
-  }
+  };
 }
 
 export class Null implements Fragment {
-  produce() {
-    return 'NULL';
-  }
+  produce = () => 'NULL';
 }
 
 export class NotNull implements Fragment {
   constructor(private readonly _null: Null) {}
 
-  produce(): string {
-    return `NOT ${this._null.produce()}`;
-  }
+  produce = () => `NOT ${this._null.produce()}`;
 }
 
 export class Compare implements Fragment {
@@ -80,27 +67,20 @@ export class Compare implements Fragment {
     private readonly date: DateValue
   ) {}
 
-  produce() {
-    return `${this.startDate.produce()} ${this.op} ${this.date.produce()}`;
-  }
+  produce = () =>
+    `${this.startDate.produce()} ${this.op} ${this.date.produce()}`;
 }
 
 export class StartDate implements Fragment {
-  produce() {
-    return 'START_DATE';
-  }
+  produce = () => 'START_DATE';
 
-  validate(): { isValid: true } {
-    return {
-      isValid: true,
-    };
-  }
+  validate = () => ({
+    isValid: true,
+  });
 }
 
 export class DateValue implements Fragment {
   constructor(private readonly value: string) {}
 
-  produce() {
-    return `TO_DATE('${this.value}', 'YYYY-MM-DD')`;
-  }
+  produce = () => `TO_DATE('${this.value}', 'YYYY-MM-DD')`;
 }

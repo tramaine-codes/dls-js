@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import * as ohm from 'ohm-js';
+import type * as ohm from 'ohm-js';
 import {
   And,
   Category,
@@ -10,27 +10,24 @@ import {
   Or,
   StartDate,
 } from '../../../filter.js';
-import grammar, { FilterSemantics } from './filter.ohm-bundle.js';
+import grammar, { type FilterSemantics } from './filter.ohm-bundle.js';
 
 export class Semantics {
   private constructor(private readonly semantics: FilterSemantics) {}
 
-  evaluate(input: string): Filter {
-    return evaluate(this.semantics(grammar.match(input)));
-  }
+  evaluate = (input: string): Filter =>
+    evaluate(this.semantics(grammar.match(input)));
 
-  static build() {
-    return new Semantics(semantics);
-  }
+  static build = () => new Semantics(semantics);
 }
 
-const evaluate = (node: ohm.NonterminalNode | ohm.Dict) => {
-  return node['eval']();
-};
+const evaluate = (node: ohm.NonterminalNode | ohm.Dict) =>
+  // biome-ignore lint/complexity/useLiteralKeys: <explanation>
+  node['eval']();
 const semantics = grammar.createSemantics();
 
 semantics.addOperation('eval()', {
-  FilterExp(exp) {
+  FilterExp: (exp) => {
     return new Filter(evaluate(exp));
   },
   Fragment(fragment) {
