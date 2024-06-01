@@ -41,7 +41,7 @@
     "grammar": "ohm generateBundles --withTypes --esm 'src/filter/transpiler/parser/grammar/*.ohm'",
     "lint": "eslint . --ext .js,.ts",
     "lint:fix": "eslint . --ext .js,.ts --fix",
-    "prepare": "husky install",
+    "prepare": "husky",
     "release": "release-it --ci",
     "start": "tsx src/index.ts",
     "test": "vitest run",
