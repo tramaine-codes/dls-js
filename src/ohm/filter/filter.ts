@@ -38,12 +38,14 @@ export class Category implements Fragment {
   produce = () => `TRIM(current_ind) IS ${this.fragment.produce()}`;
 
   static from = (equality: '=' | '!=', bool: boolean) => {
+    // current = true
     if (equality === '=' && bool) {
-      return new Category(new NotNull(new Null()));
+      return new Category(new NotNull());
     }
 
-    if (equality === '!=' && bool) {
-      return new Category(new NotNull(new Null()));
+    // current != false
+    if (equality === '!=' && bool === false) {
+      return new Category(new NotNull());
     }
 
     return new Category(new Null());
@@ -55,9 +57,7 @@ export class Null implements Fragment {
 }
 
 export class NotNull implements Fragment {
-  constructor(private readonly _null: Null) {}
-
-  produce = () => `NOT ${this._null.produce()}`;
+  produce = () => `NOT ${new Null().produce()}`;
 }
 
 export class Compare implements Fragment {

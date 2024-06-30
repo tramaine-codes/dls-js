@@ -1,6 +1,7 @@
 {
   "author": "Tramaine L. Gillus",
   "dependencies": {
+    "chevrotain": "11.0.3",
     "dayjs": "1.11.11",
     "liqe": "3.8.0",
     "ohm-js": "17.1.0"
@@ -41,7 +42,8 @@
     "lint:fix": "biome lint --apply --no-errors-on-unmatched .",
     "prepare": "husky",
     "release": "release-it --ci",
-    "start": "bun src/index.ts",
+    "ohm:start": "bun src/ohm/index.ts",
+    "chevrotain:start": "bun src/chevrotain/index.ts",
     "test": "vitest run",
     "test:cov": "vitest run --coverage",
     "test:watch": "vitest",
