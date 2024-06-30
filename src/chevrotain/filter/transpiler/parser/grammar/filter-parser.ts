@@ -21,9 +21,13 @@ export class FilterParser extends CstParser {
   }
 
   parse = (input: string) => {
-    const lexingResult = this.lexer.tokenize(input);
+    const { errors, tokens } = this.lexer.tokenize(input);
 
-    this.input = lexingResult.tokens;
+    if (errors.length > 0) {
+      throw new Error(errors.map(({ message }) => message).join('\n'));
+    }
+
+    this.input = tokens;
 
     return this.jobDateExp();
   };
@@ -31,6 +35,10 @@ export class FilterParser extends CstParser {
   private jobDateExp = this.RULE('jobDateExp', () => {
     this.CONSUME(JobDate);
     this.CONSUME(Equal);
+    this.SUBRULE(this.dateValue);
+  });
+
+  private dateValue = this.RULE('dateValue', () => {
     this.CONSUME(DateValue);
   });
 

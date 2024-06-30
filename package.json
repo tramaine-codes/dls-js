@@ -2,7 +2,8 @@
   "author": "Tramaine L. Gillus",
   "dependencies": {
     "chevrotain": "11.0.3",
-    "dayjs": "1.11.11",
+    "date-fns": "^3.6.0",
+    "effect": "^3.4.5",
     "liqe": "3.8.0",
     "ohm-js": "17.1.0"
   },

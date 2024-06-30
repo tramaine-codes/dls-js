@@ -1,5 +1,6 @@
-import type { IToken } from 'chevrotain';
-import { Filter, Where } from '../../../filter.js';
+import type { CstNode, IToken } from 'chevrotain';
+import { Array as Arr, Option } from 'effect';
+import { Filter, LegalDate, Where } from '../../../filter.js';
 import { FilterParser } from './filter-parser.js';
 
 export class FilterSemantics {
@@ -18,10 +19,19 @@ export class FilterSemantics {
 type JobDateExpCstChildren = {
   JobDate: IToken[];
   Equal: IToken[];
+  dateValue: DateValueCstNode[];
+};
+
+interface DateValueCstNode extends CstNode {
+  name: 'dateValue';
+  children: DateValueCstChildren;
+}
+
+type DateValueCstChildren = {
   DateValue: IToken[];
 };
 
-// console.log(generateCstDts(parser.getGAstProductions()));
+// console.log(generateCstDts(FilterParser.build().getGAstProductions()));
 
 const parser = FilterParser.build();
 const BaseFilterVisitor = parser.getBaseCstVisitorConstructor();
@@ -32,7 +42,12 @@ class FilterVisitor extends BaseFilterVisitor {
     this.validateVisitor();
   }
 
-  jobDateExp = (ctx: JobDateExpCstChildren) =>
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    new Where(ctx.DateValue[0]!.image);
+  jobDateExp = ({ dateValue }: JobDateExpCstChildren): Where =>
+    new Where(this.visit(dateValue));
+
+  dateValue = ({ DateValue }: DateValueCstChildren) => {
+    const { image } = Option.getOrThrow(Arr.head(DateValue));
+
+    return new LegalDate(image);
+  };
 }
