@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import type * as ohm from 'ohm-js';
 import {
   And,
