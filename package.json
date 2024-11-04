@@ -3,7 +3,7 @@
   "dependencies": {
     "chevrotain": "11.0.3",
     "date-fns": "4.1.0",
-    "effect": "3.10.8",
+    "effect": "3.10.9",
     "liqe": "3.8.0",
     "ohm-js": "17.1.0"
   },
@@ -14,8 +14,6 @@
     "@ohm-js/cli": "2.0.0",
     "@release-it/conventional-changelog": "9.0.2",
     "@types/bun": "1.1.13",
-    "@typescript-eslint/eslint-plugin": "8.12.2",
-    "@typescript-eslint/parser": "8.12.2",
     "@vitest/coverage-v8": "2.1.4",
     "del-cli": "6.0.0",
     "husky": "9.1.6",

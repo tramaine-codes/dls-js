@@ -1,8 +1,12 @@
-module.exports = {
+import type { Config } from 'release-it';
+
+export default {
   git: {
     commitMessage: 'chore(release): release v${version}',
+    commitArgs: ['-S'],
     tagAnnotation: 'release v${version}',
     tagName: 'v${version}',
+    tagArgs: ['-S'],
   },
   github: {
     release: true,
@@ -30,4 +34,4 @@ module.exports = {
       },
     },
   },
-};
+} satisfies Config;
