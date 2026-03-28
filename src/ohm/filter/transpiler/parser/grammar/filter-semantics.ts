@@ -21,7 +21,7 @@ export class Semantics {
 }
 
 const evaluate = (node: ohm.NonterminalNode | ohm.Dict) =>
-  // biome-ignore lint/complexity/useLiteralKeys: <explanation>
+  // biome-ignore lint/complexity/useLiteralKeys: eval is a reserved word and cannot be accessed via dot notation
   node['eval']();
 const semantics = grammar.createSemantics();
 
